@@ -1,0 +1,162 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Send, Phone, Mail, MapPin, 
+  ArrowLeft, Github, Twitter, Linkedin, 
+  CheckCircle2, Sun, Moon 
+} from 'lucide-react';
+
+const ContactPage = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 5000); // Reset status setelah 5 detik
+  };
+
+  return (
+    <div className="min-h-screen transition-colors duration-300 bg-slate-100 dark:bg-slate-950 p-4 md:p-8 font-sans text-slate-900 dark:text-white">
+      
+      <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-xl overflow-hidden relative border border-slate-200 dark:border-slate-800">
+        
+        <div className="flex justify-between items-center px-8 pt-8">
+          <button className="flex items-center gap-2 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors font-medium group">
+            <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" /> 
+            Back to Home
+          </button>
+          
+          <button 
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:scale-110 transition-transform"
+          >
+            {darkMode ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-600" />}
+          </button>
+        </div>
+
+        <div className="p-8 md:p-12">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
+            <p className="text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+              Punya proyek menarik atau sekadar ingin menyapa? Saya siap membantu mewujudkan ide Anda.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <div className="space-y-6">
+              <div className="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border border-slate-100 dark:border-slate-800">
+                <div className="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center text-slate-900 mb-4">
+                  <Mail size={24} />
+                </div>
+                <h3 className="font-bold text-lg">Email Me</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">victor.alvarado@example.com</p>
+              </div>
+
+              <div className="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border border-slate-100 dark:border-slate-800">
+                <div className="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center text-slate-900 mb-4">
+                  <MapPin size={24} />
+                </div>
+                <h3 className="font-bold text-lg">Location</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Bandung, West Java, ID</p>
+              </div>
+
+              <div className="flex justify-center lg:justify-start gap-4 pt-4">
+                <button className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
+                  <Linkedin size={20} />
+                </button>
+                <button className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
+                  <Github size={20} />
+                </button>
+                <button className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
+                  <Twitter size={20} />
+                </button>
+              </div>
+            </div>
+
+            <div className="lg:col-span-2">
+              {isSubmitted ? (
+                <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-green-50 dark:bg-green-900/20 rounded-3xl border border-green-100 dark:border-green-800">
+                  <CheckCircle2 size={64} className="text-green-500 mb-4" />
+                  <h3 className="text-2xl font-bold">Message Sent!</h3>
+                  <p className="text-slate-500 dark:text-slate-400 mt-2">Terima kasih, Victor akan segera menghubungi Anda.</p>
+                  <button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="mt-6 text-green-600 dark:text-green-400 font-semibold underline"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold ml-1">Your Name</label>
+                      <input 
+                        required
+                        type="text" 
+                        placeholder="John Doe"
+                        className="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold ml-1">Email Address</label>
+                      <input 
+                        required
+                        type="email" 
+                        placeholder="john@example.com"
+                        className="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold ml-1">Subject</label>
+                    <input 
+                      type="text" 
+                      placeholder="Project Inquiry"
+                      className="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold ml-1">Message</label>
+                    <textarea 
+                      required
+                      rows="4" 
+                      placeholder="Tell me about your project..."
+                      className="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all resize-none"
+                    ></textarea>
+                  </div>
+
+                  <button 
+                    type="submit"
+                    className="w-full md:w-auto flex items-center justify-center gap-3 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-4 px-10 rounded-2xl transition-all shadow-lg shadow-yellow-400/20 active:scale-95 group"
+                  >
+                    Send Message 
+                    <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </button>
+                </form>
+              )}
+            </div>
+
+          </div>
+        </div>
+
+        <footer className="pb-12 text-center text-slate-400 text-sm">
+          © Victor Alvarado. 2026 All rights reserved
+        </footer>
+      </div>
+    </div>
+  );
+};
+
+export default ContactPage;

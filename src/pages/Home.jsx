@@ -1,9 +1,11 @@
-import React from 'react'
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
 
-function Home() {
+export default function Home({ darkMode, setDarkMode }) {
   return (
-    <div>Home</div>
-  )
+    <>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Hero />
+    </>
+  );
 }
-
-export default Home
