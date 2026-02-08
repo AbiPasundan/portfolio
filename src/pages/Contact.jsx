@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Send, Phone, Mail, MapPin, 
-  ArrowLeft, Github, Twitter, Linkedin, 
-  CheckCircle2, Sun, Moon 
-} from 'lucide-react';
+import { Send, Phone, Mail, MapPin, ArrowLeft, Github, Twitter, Linkedin, CheckCircle2, Sun, Moon } from 'lucide-react';
+import { Link } from 'react-router';
 
 const ContactPage = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -20,7 +17,7 @@ const ContactPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000); // Reset status setelah 5 detik
+    setTimeout(() => setIsSubmitted(false), 5000);
   };
 
   return (
@@ -29,10 +26,10 @@ const ContactPage = () => {
       <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-xl overflow-hidden relative border border-slate-200 dark:border-slate-800">
         
         <div className="flex justify-between items-center px-8 pt-8">
-          <button className="flex items-center gap-2 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors font-medium group">
+          <Link to="/" className="flex items-center gap-2 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors font-medium group">
             <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" /> 
             Back to Home
-          </button>
+          </Link>
           
           <button 
             onClick={() => setDarkMode(!darkMode)}
@@ -70,15 +67,12 @@ const ContactPage = () => {
               </div>
 
               <div className="flex justify-center lg:justify-start gap-4 pt-4">
-                <button className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
+                <a href='https://linkedin.com/in/muhamad-wildan-nursyamsi' className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
                   <Linkedin size={20} />
-                </button>
-                <button className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
+                </a>
+                <a href='https://github.com/AbiPasundan' className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
                   <Github size={20} />
-                </button>
-                <button className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:bg-yellow-400 hover:text-slate-900 transition-all">
-                  <Twitter size={20} />
-                </button>
+                </a>
               </div>
             </div>
 

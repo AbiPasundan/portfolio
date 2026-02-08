@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Twitter, Linkedin, Youtube, Download, Moon, Sun, ExternalLink } from 'lucide-react';
+import { Github, Twitter, Linkedin, Youtube, Download, Moon, Sun, ExternalLink, Facebook, Instagram } from 'lucide-react';
 
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 
 import dicoding from "@/../public/certificate/dicoding.png"
+import { Link } from 'react-router';
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -78,10 +79,18 @@ const App = () => {
                     <p className="text-slate-500 dark:text-slate-400 font-medium">Software Engineer</p>
 
                     <div className="flex gap-4 mt-4 text-slate-400">
-                        <Github className="hover:text-black dark:hover:text-white cursor-pointer" size={20} />
-                        <Twitter className="hover:text-blue-400 cursor-pointer" size={20} />
-                        <Linkedin className="hover:text-blue-600 cursor-pointer" size={20} />
-                        <Youtube className="hover:text-red-500 cursor-pointer" size={20} />
+                        <a href="https://github.com/AbiPasundan">
+                            <Github className="hover:text-black dark:hover:text-white cursor-pointer" size={20} />
+                        </a>
+                        <a href="#">
+                            <Facebook className="hover:text-blue-400 cursor-pointer" size={20} />
+                        </a>
+                        <a href="https://linkedin.com/in/muhamad-wildan-nursyamsi">
+                            <Linkedin className="hover:text-blue-600 cursor-pointer" size={20} />
+                        </a>
+                        <a href="#">
+                            <Instagram className="hover:text-red-500 cursor-pointer" size={20} />
+                        </a>
                     </div>
 
                     <div className="grid grid-cols-3 gap-8 mt-10 w-full max-w-lg">
@@ -103,9 +112,9 @@ const App = () => {
                         <button className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-4 px-8 rounded-2xl transition-all shadow-lg shadow-yellow-400/20 active:scale-95">
                             Download CV <Download size={18} />
                         </button>
-                        <button className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold py-4 px-8 rounded-2xl transition-all active:scale-95 border border-transparent dark:border-slate-700">
+                        <Link to="/contact" className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold py-4 px-8 rounded-2xl transition-all active:scale-95 border border-transparent dark:border-slate-700">
                             Contact me
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
@@ -156,7 +165,7 @@ const App = () => {
                         {activeTab === 'certificate' && (
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in duration-500">
                                 {certificates.map((cert) => (
-                                    <div key={cert.id}
+                                    <a href={cert.credential} key={cert.id}
                                         className="group relative bg-slate-50 dark:bg-slate-800/50 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700">
                                         <div className="aspect-4/3 overflow-hidden">
                                             <img src={cert.img} alt={cert.title}
@@ -183,7 +192,7 @@ const App = () => {
                                                 <ExternalLink size={16} />
                                             </a>
                                         </div>
-                                    </div>
+                                    </a>
                                 ))}
                             </div>
                         )}
