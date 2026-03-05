@@ -27,7 +27,8 @@ import { FaBootstrap } from "react-icons/fa";
 
 
 
-import dicoding from "@/../public/certificate/dicoding.png"
+import dicoding1 from "@/assets/img/certificate/dicoding.png"
+import dicoding2 from "@/assets/img/certificate/dicoding2.jpeg"
 import portfolio from "@/assets/img/portfolio.png"
 import { Link } from 'react-router';
 
@@ -58,7 +59,7 @@ const App = () => {
         { name: 'Go', level: 'Intermediate', icon: <FaGolang /> },
         { name: 'Swagger', level: 'Intermediate', icon: <SiSwagger /> },
         { name: 'Postgresql', level: 'Intermediate', icon: <DiPostgresql /> },
-        
+
         { name: 'Linux', level: 'Intermediate', icon: <FaLinux /> },
         { name: 'MXLinux', level: 'Intermediate', icon: <SiMxlinux /> },
         { name: 'Docker', level: 'Intermediate', icon: <GrDocker /> },
@@ -85,7 +86,7 @@ const App = () => {
             title: "Dasar Pemrograman JavaScript",
             issuer: "Dicoding Academy",
             date: "2023",
-            img: dicoding,
+            img: dicoding1,
             credential: "https://www.dicoding.com/certificates/MEPJV21RJP3V"
         },
         {
@@ -95,6 +96,14 @@ const App = () => {
             date: "2024",
             img: "https://udemy-certificate.s3.amazonaws.com/image/UC-c7000feb-c154-4358-8542-c98d4cd8e340.jpg?v=1720273478000",
             credential: "https://www.udemy.com/certificate/UC-c7000feb-c154-4358-8542-c98d4cd8e340/"
+        },
+        {
+            id: 4,
+            title: "Dasar Pemrograman Web",
+            issuer: "Dicoding Academy",
+            date: "2023",
+            img: dicoding2,
+            credential: "https://www.dicoding.com/certificates/QLZ9Q6MDEZ5D"
         },
     ];
 
@@ -149,9 +158,9 @@ const App = () => {
                     </div>
 
                     <div className="flex gap-4 mt-10">
-                        <button className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-4 px-8 rounded-2xl transition-all shadow-lg shadow-yellow-400/20 active:scale-95">
+                        <a href="@/../public/cv/CV-Muhamad_Wildan_Nursyamsi.pdf" download="CV-Muhamad_Wildan_Nursyamsi.pdf" className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold py-4 px-8 rounded-2xl transition-all shadow-lg shadow-yellow-400/20 active:scale-95">
                             Download CV <BsDownload size={18} />
-                        </button>
+                        </a>
                         <Link to="/contact" className="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-semibold py-4 px-8 rounded-2xl transition-all active:scale-95 border border-transparent dark:border-slate-700">
                             Contact me
                         </Link>
