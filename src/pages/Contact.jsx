@@ -1,5 +1,5 @@
-import { FaRegMoon } from "react-icons/fa"; 
-import { BiSun } from "react-icons/bi"; 
+import { FaRegMoon } from "react-icons/fa";
+import { BiSun } from "react-icons/bi";
 import { AiFillLinkedin, AiOutlineArrowLeft } from "react-icons/ai";
 import { BsGithub } from "react-icons/bs";
 import { BiMap } from "react-icons/bi";
@@ -61,7 +61,7 @@ const ContactPage = () => {
                   <AiOutlineMail size={24} />
                 </div>
                 <h3 className="font-bold text-lg">Email Me</h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">victor.alvarado@example.com</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">johndoe@example.com</p>
               </div>
 
               <div className="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-3xl border border-slate-100 dark:border-slate-800">
@@ -86,7 +86,7 @@ const ContactPage = () => {
               {isSubmitted ? (
                 <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-green-50 dark:bg-green-900/20 rounded-3xl border border-green-100 dark:border-green-800">
                   <h3 className="text-2xl font-bold">Message Sent!</h3>
-                  <p className="text-slate-500 dark:text-slate-400 mt-2">Terima kasih, Victor akan segera menghubungi Anda.</p>
+                  <p className="text-slate-500 dark:text-slate-400 mt-2">Terima kasih, Saya akan segera menghubungi Anda.</p>
                   <button
                     onClick={() => setIsSubmitted(false)}
                     className="mt-6 text-green-600 dark:text-green-400 font-semibold underline"
@@ -95,11 +95,16 @@ const ContactPage = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4" name="contact" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field" netlify>
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p hidden>
+                    <input name="bot-field" />
+                  </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label className="text-sm font-semibold ml-1">Your Name</label>
                       <input
+                        name="name"
                         required
                         type="text"
                         placeholder="John Doe"
@@ -109,6 +114,7 @@ const ContactPage = () => {
                     <div className="space-y-2">
                       <label className="text-sm font-semibold ml-1">Email Address</label>
                       <input
+                        name="email"
                         required
                         type="email"
                         placeholder="john@example.com"
@@ -120,6 +126,7 @@ const ContactPage = () => {
                   <div className="space-y-2">
                     <label className="text-sm font-semibold ml-1">Subject</label>
                     <input
+                      name="subject"
                       type="text"
                       placeholder="Project Inquiry"
                       className="w-full p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all"
@@ -129,6 +136,7 @@ const ContactPage = () => {
                   <div className="space-y-2">
                     <label className="text-sm font-semibold ml-1">Message</label>
                     <textarea
+                      name="message"
                       required
                       rows="4"
                       placeholder="Tell me about your project..."
