@@ -1,4 +1,6 @@
+import React, { useState, useEffect } from 'react';
 
+// icons
 import { BiSun } from "react-icons/bi";
 import { FaRegMoon } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
@@ -7,8 +9,6 @@ import { BsInstagram } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { AiOutlineGithub } from "react-icons/ai";
-import React, { useState, useEffect } from 'react';
-
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
@@ -26,10 +26,13 @@ import { AiOutlineHtml5 } from "react-icons/ai";
 import { FaBootstrap } from "react-icons/fa"; 
 
 
-
+// certificate
 import dicoding1 from "@/assets/img/certificate/dicoding.png"
 import dicoding2 from "@/assets/img/certificate/dicoding2.jpeg"
-import portfolio from "@/assets/img/portfolio.png"
+// project
+import portfolio from "@/assets/img/project/portfolio.png"
+import goRestFullApi from "@/assets/img/project/gorestfullapi.png"
+
 import { Link } from 'react-router';
 
 const App = () => {
@@ -46,6 +49,7 @@ const App = () => {
 
     const projects = [
         { id: 1, title: "Portfolio Website", category: "Web App", link: "https://github.com/AbiPasundan/portfolio", img: portfolio },
+        { id: 2, title: "Golang RESTful API with Postgresql practice", category: "API", link: "https://github.com/AbiPasundan/GO-RESTful-API", img: goRestFullApi },
     ];
 
     const skills = [
