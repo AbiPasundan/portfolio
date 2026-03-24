@@ -14,16 +14,16 @@ import { FaReact, FaNodeJs } from "react-icons/fa";
 import { FaGolang } from "react-icons/fa6";
 import { SiSwagger } from "react-icons/si";
 import { DiPostgresql } from "react-icons/di";
-import { SiMxlinux } from "react-icons/si"; 
-import { FaLinux } from "react-icons/fa"; 
-import { SiRedux } from "react-icons/si"; 
-import { SiRedis } from "react-icons/si"; 
-import { GrDocker } from "react-icons/gr"; 
-import { SiKde } from "react-icons/si"; 
-import { TbBrandVscode } from "react-icons/tb"; 
-import { DiCss3 } from "react-icons/di"; 
-import { AiOutlineHtml5 } from "react-icons/ai"; 
-import { FaBootstrap } from "react-icons/fa"; 
+import { SiMxlinux } from "react-icons/si";
+import { FaLinux } from "react-icons/fa";
+import { SiRedux } from "react-icons/si";
+import { SiRedis } from "react-icons/si";
+import { GrDocker } from "react-icons/gr";
+import { SiKde } from "react-icons/si";
+import { TbBrandVscode } from "react-icons/tb";
+import { DiCss3 } from "react-icons/di";
+import { AiOutlineHtml5 } from "react-icons/ai";
+import { FaBootstrap } from "react-icons/fa";
 
 
 // certificate
@@ -33,20 +33,11 @@ import dicoding2 from "@/assets/img/certificate/dicoding2.jpeg"
 import portfolio from "@/assets/img/project/portfolio.png"
 import goRestFullApi from "@/assets/img/project/gorestfullapi.png"
 
-import { Link } from 'react-router';
 import Hero from './components/Hero';
+import ToggleTheme from './components/ToggleTheme';
 
 const App = () => {
-    const [darkMode, setDarkMode] = useState(false);
     const [activeTab, setActiveTab] = useState('portfolio');
-
-    useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }, [darkMode]);
 
     const projects = [
         { id: 1, title: "Portfolio Website", category: "Web App", link: "https://github.com/AbiPasundan/portfolio", img: portfolio },
@@ -60,7 +51,7 @@ const App = () => {
         { name: 'Tailwind', level: 'Expert', icon: <RiTailwindCssFill /> },
         { name: 'React', level: 'Intermediate', icon: <FaReact /> },
         { name: 'Node.js', level: 'Intermediate', icon: <FaNodeJs /> },
-        
+
         { name: 'Go', level: 'Intermediate', icon: <FaGolang /> },
         { name: 'Swagger', level: 'Intermediate', icon: <SiSwagger /> },
         { name: 'Postgresql', level: 'Intermediate', icon: <DiPostgresql /> },
@@ -70,13 +61,13 @@ const App = () => {
         { name: 'Docker', level: 'Intermediate', icon: <GrDocker /> },
         { name: 'Redis', level: 'Intermediate', icon: <SiRedis /> },
         { name: 'Redux', level: 'Intermediate', icon: <SiRedux /> },
-        
+
         { name: 'Vscode', level: 'Intermediate', icon: <TbBrandVscode /> },
         { name: 'KDE Plasma', level: 'Intermediate', icon: <SiKde /> },
 
     ];
 
-    
+
     const certificates = [
         {
             id: 1,
@@ -118,11 +109,9 @@ const App = () => {
 
             <div className="max-w-4xl mx-auto bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-xl overflow-hidden relative border border-slate-200 dark:border-slate-800">
 
-                <button onClick={() => setDarkMode(!darkMode)} className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:scale-110 transition-transform cursor-pointer" >
-                    {darkMode ? <BiSun size={20} className="text-yellow-400" /> : <FaRegMoon size={20} className="text-slate-600" />}
-                </button>
+                <ToggleTheme />
 
-<Hero></Hero>
+                <Hero />
 
                 <div className="px-8 pb-12">
                     <div className="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-2xl mb-8 max-w-md mx-auto">
