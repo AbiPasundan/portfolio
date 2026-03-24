@@ -29,20 +29,15 @@ import { FaBootstrap } from "react-icons/fa";
 // certificate
 import dicoding1 from "@/assets/img/certificate/dicoding.png"
 import dicoding2 from "@/assets/img/certificate/dicoding2.jpeg"
-// project
-import portfolio from "@/assets/img/project/portfolio.png"
-import goRestFullApi from "@/assets/img/project/gorestfullapi.png"
-
+// component
 import Hero from './components/Hero';
 import ToggleTheme from './components/ToggleTheme';
+import Portfolio from './components/Portfolio';
 
 const App = () => {
     const [activeTab, setActiveTab] = useState('portfolio');
 
-    const projects = [
-        { id: 1, title: "Portfolio Website", category: "Web App", link: "https://github.com/AbiPasundan/portfolio", img: portfolio },
-        { id: 2, title: "Golang RESTful API with Postgresql practice", category: "API", link: "https://github.com/AbiPasundan/GO-RESTful-API", img: goRestFullApi },
-    ];
+    
 
     const skills = [
         { name: 'HTML', level: 'Expert', icon: <AiOutlineHtml5 /> },
@@ -130,20 +125,7 @@ const App = () => {
 
 
                         {activeTab === 'portfolio' && (
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {projects.map((project) => (
-                                    <div key={project.id} className="group relative overflow-hidden rounded-3xl aspect-4/3 bg-slate-200 dark:bg-slate-800">
-                                        <a href={project.link}>
-                                            <img src={project.img} alt={project.title} className="w-full h-full object-cover grayscale transition-all duration-500 group-hover:scale-110" />
-                                            <div className="absolute inset-0 bg-yellow-400/90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 text-center">
-                                                <h3 className="text-slate-900 text-xl font-bold">{project.title}</h3>
-                                                <p className="text-slate-800 text-sm mb-4">{project.category}</p>
-                                                <FiExternalLink className="text-slate-900" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                ))}
-                            </div>
+                            <Portfolio />
                         )}
                         {activeTab === 'skills' && (
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
