@@ -7,18 +7,10 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsFillSendFill } from "react-icons/bs";
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import ToggleTheme from "@/components/ToggleTheme";
 
 const ContactPage = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,12 +29,7 @@ const ContactPage = () => {
             Back to Home
           </Link>
 
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:scale-110 transition-transform"
-          >
-            {darkMode ? <BiSun size={20} className="text-yellow-400" /> : <FaRegMoon size={20} className="text-slate-600" />}
-          </button>
+          <ToggleTheme />
         </div>
 
         <div className="p-8 md:p-12">
