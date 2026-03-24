@@ -6,6 +6,7 @@ import ToggleTheme from './components/ToggleTheme';
 import Portfolio from './components/Portfolio';
 import Skill from './components/utils/Skill';
 import Certificate from './components/utils/Certificate';
+import Footer from './components/Footer';
 
 const App = () => {
     const [activeTab, setActiveTab] = useState('portfolio');
@@ -82,11 +83,8 @@ const App = () => {
                             <Certificate />
                         )}
 
+                        <Footer />
 
-
-                        <footer className="mt-16 text-center text-slate-400 text-sm">
-                            © Wildan Nursyamsi. 2026 All rights reserved
-                        </footer>
                     </div>
 
 
