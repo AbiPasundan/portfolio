@@ -7,6 +7,7 @@ import './index.css'
 
 import App from '@/App';
 import ContactPage from '@/pages/Contact';
+import NotFound from '@/pages/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <h1>Salah Ajig</h1>,
+    element: <NotFound />,
   },
 ]);
 
