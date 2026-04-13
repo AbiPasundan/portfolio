@@ -2,12 +2,14 @@ import React from 'react'
 import PortfolioProjects from './utils/PortfolioProjects'
 // project
 import portfolio from "@/assets/img/project/portfolio.png"
-import goRestFullApi from "@/assets/img/project/gorestfullapi.png"
+import coffeeShop from "@/assets/img/project/coffeeshop.png"
+import sortlink from "@/assets/img/project/sortlink.png"
 
 const projects = [
-        { id: 1, title: "Portfolio Website", category: "Web App", link: "https://github.com/AbiPasundan/portfolio", img: portfolio },
-        { id: 2, title: "Golang RESTful API with Postgresql practice", category: "API", link: "https://github.com/AbiPasundan/GO-RESTful-API", img: goRestFullApi },
-    ];
+    { id: 1, title: "Portfolio Website", category: "Web App", link: "https://github.com/AbiPasundan/portfolio", img: portfolio },
+    { id: 2, title: "Coffee Shop Frontend", category: "Web App", link: "https://github.com/AbiPasundan/koda-b6-react", img: coffeeShop },
+    { id: 3, title: "Sortlink", category: "Web App", link: "https://github.com/AbiPasundan/sortlink", img: sortlink },
+];
 
 function Portfolio() {
     return (
